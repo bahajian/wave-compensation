@@ -1,4 +1,4 @@
-const sql = require("./connection.js");
+const sql = require("../helpers/connection.js");
 
 // constructor
 const PayPeriod = function(payPeriod) {
@@ -9,6 +9,11 @@ const PayPeriod = function(payPeriod) {
 PayPeriod.create = async function(payPeriod) {
     //console.log(payPeriod)
     let result = await sql.query("INSERT INTO PayPeriod SET ?", payPeriod);
+    return result;
+};
+
+PayPeriod.selectAll = async function() {
+    let result = await sql.query("SELECT * FROM PayPeriod");
     return result;
 };
 
@@ -38,6 +43,4 @@ function daysInMonth (month, year) {
     return new Date(year, month, 0).getDate();
 }
 
-
 module.exports = PayPeriod;
-

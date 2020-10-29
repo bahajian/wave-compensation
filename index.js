@@ -4,8 +4,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const fileUpload = require('express-fileupload');
-const PayPeriod = require('./PayPeriod');
-const UploadAndIndert = require('./uploadAndInsert');
+const PayPeriod = require('./controllers/PayPeriod');
+const Report = require('./controllers/report');
+const UploadAndIndert = require('./controllers/uploadAndInsert');
 const path = require('path')
 
 app.use(fileUpload({
@@ -59,13 +60,9 @@ app.get("/compensation/start/:year", (req, res) => {
     });
 });
 
-// app.post("/compensation/upload", (req, res) => {
-//     //PayPeriod.upload(req.params.year, function (err, result){
-//     res.json({ message: "upload." });
-// });
-
-app.get("/compensation/report", (req, res) => {
-    res.json({ message: "report." });
+app.get("/compensation/report", async (req, res) => {
+    var result = await Report.selectAll();
+    res.json(result);
 });
 
 // set port, listen for requests

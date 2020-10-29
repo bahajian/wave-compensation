@@ -6,9 +6,13 @@ CREATE TABLE `compensation`.`PayPeriod` (
   `endDate` DATE NULL,
   PRIMARY KEY (`id`));
 
-CREATE TABLE `compensation`.`EmployeeTimeReport`(
-`employeeId` INT NOT NULL ,
-`jobGroup` VARCHAR(45) NOT NULL ,
-`date` DATETIME NOT NULL ,
-PRIMARY KEY (`date`, `employeeId`));
+SELECT * FROM compensation.EmployeeTimeReport;CREATE TABLE `EmployeeTimeReport` (
+  `employeeId` int DEFAULT NULL,
+  `jobGroup` varchar(45) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `hoursWorked` float DEFAULT NULL,
+  `payPeriodId` int DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
