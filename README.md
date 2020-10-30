@@ -27,11 +27,17 @@ Curl:
 
 ## How to test the software
 ### Unit test
-blah
 
 ```
 NODE_ENV=test mocha ./test/unit-test/payPeriod-test.js
 ```
 
 ### Regression test
-blah
+first run the project by running
+
+`node index.js`
+then
+
+```
+node test/regression-test/regression.js
+```
