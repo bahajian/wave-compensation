@@ -27,17 +27,21 @@ Curl:
 
 ## How to test the software
 ### Unit test
+for running unit tests, first need to install some libraries.
+1- run this command line in terminal `npm install mocha chai newman sinon --save-dev`
+2- Be sure the project is running. run the project by `node index.js`
+3- running this command line in the terminal in the project root folder. If you can see the “2 passing” message it means everything is working perfectly.
 
 ```
 NODE_ENV=test mocha ./test/unit-test/payPeriod-test.js
 ```
 
 ### Regression test
-first run the project by running
-
-`node index.js`
-then
+1- Be sure the project is running. run the project by `node index.js`
+2- run this command line in the terminal in the project root folder.
 
 ```
 node test/regression-test/regression.js
+
 ```
+By running this command line you can see the test results and passed or failed steps.
