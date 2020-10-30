@@ -1,19 +1,25 @@
-const sql = require("../helpers/connection.js");
+
 
 // constructor
 const PayPeriod = function(payPeriod) {
     this.startDate = payPeriod.startDate;
     this.endDate = payPeriod.endDate;
 };
+console.log()
+if(process.env.NODE_ENV != "test") {
+    PayPeriod.sql = require("../helpers/connection.js");
+} else{
+    PayPeriod.sql = {};
+}
+
 
 PayPeriod.create = async function(payPeriod) {
-    //console.log(payPeriod)
-    let result = await sql.query("INSERT INTO PayPeriod SET ?", payPeriod);
+    let result = await PayPeriod.sql.query("INSERT INTO PayPeriod SET ?", payPeriod);
     return result;
 };
 
 PayPeriod.selectAll = async function() {
-    let result = await sql.query("SELECT * FROM PayPeriod");
+    let result = await PayPeriod.sql.query("SELECT * FROM PayPeriod");
     return result;
 };
 
@@ -39,6 +45,7 @@ PayPeriod.start = async function (y, callback) {
     callback(null, true);
 }
 
+PayPeriod.daysInMonth = daysInMonth;
 function daysInMonth (month, year) {
     return new Date(year, month, 0).getDate();
 }

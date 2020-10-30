@@ -1,7 +1,7 @@
 const sql = require("../helpers/connection.js");
 const readline = require('readline');
 var fs = require('fs')
-const PayPeriod = require('./PayPeriod');
+const PayPeriod = require('./payPeriod');
 var payPeriodList = {};
 
 const UploadAndIndert = function() {

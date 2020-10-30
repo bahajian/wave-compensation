@@ -3,10 +3,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const fileUpload = require('express-fileupload');
-const PayPeriod = require('./controllers/PayPeriod');
+const PayPeriod = require('./controllers/payPeriod');
 const Report = require('./controllers/report');
 const UploadAndIndert = require('./controllers/uploadAndInsert');
-const path = require('path')
+const path = require('path');
 
 app.use(fileUpload({
     createParentPath: true,
