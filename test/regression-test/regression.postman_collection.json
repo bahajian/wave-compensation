@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "1677d2bc-5e23-4777-ba86-e0c7b22e6c09",
+		"name": "regression",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/compensation/report",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1050885f-8247-465c-8310-44eed4c6f4fc",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", () => {",
+							"  pm.expect(pm.response.code).to.eql(200);",
+							"});",
+							"",
+							"const jsonData = pm.response.json();",
+							"pm.test(\"Test array properties\", () => {",
+							"    pm.expect(jsonData.employeeReports).to.be.an(\"array\");",
+							"  ",
+							"    //get the notification settings object",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/compensation/report",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"compensation",
+						"report"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
